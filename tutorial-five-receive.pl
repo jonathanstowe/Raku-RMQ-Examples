@@ -1,0 +1,34 @@
+#!perl6
+
+
+use v6;
+
+use Net::AMQP;
+
+
+
+multi sub MAIN(*@topics ) {
+    my $n = Net::AMQP.new(:debug);
+    unless @topics.elems {
+        say "will be displaying all the messages";
+        @topics.push: '#';
+    }
+    my $connection = $n.connect.result;
+    react {
+        whenever $n.open-channel(1) -> $channel {
+            whenever $channel.declare-exchange('topic-logs', 'topic') -> $exchange {
+                whenever $channel.declare-queue('', :exclusive) -> $queue {
+                    for @topics -> $topic {
+                        await $queue.bind('topic-logs', $topic);
+                    }
+                    $queue.consume;
+                    my $body-supply = $queue.message-supply.map( -> $v { [ $v.routing-key, $v.body.decode ] }).share;
+                    whenever $body-supply -> ( $topic , $message ) {
+                            say $*PID ~ " : [$topic]  $message";
+                    }
+                }
+            }
+        }
+    }
+    await $connection;
+}
