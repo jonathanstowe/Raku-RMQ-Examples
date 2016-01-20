@@ -21,34 +21,34 @@ You will need at least version v0.1.4 for these examples to work properly.
 This is the simplest example that does something, a client that sends a simple
 message to the broker and a single single subscriber that prints what it receives.
 
-![](http://www.rabbitmq.com/img/tutorials/python-one.png)
+![Hello Image](http://www.rabbitmq.com/img/tutorials/python-one.png)
 
 ## [Work Queues](tutorial-two)
 
 An example demonstrating how tasks can be distributed among a pool of workers.
 
-![](http://www.rabbitmq.com/img/tutorials/python-two.png)
+![Work Image](http://www.rabbitmq.com/img/tutorials/python-two.png)
 
 ## [Publish/Subscribe](tutorial-three)
 
 Demonstration of how a single message can be published to multiple consumers at once.
 
-![](http://www.rabbitmq.com/img/tutorials/python-three.png)
+![Publish Image](http://www.rabbitmq.com/img/tutorials/python-three.png)
 
 ## [Routing](tutorial-four)
 
 Selectively receiving message based on a publisher supplied key.
 
-![](http://www.rabbitmq.com/img/tutorials/python-four.png)
+![Routing IMage](http://www.rabbitmq.com/img/tutorials/python-four.png)
 
 ## [Topics](tutorial-five)
 
 Selectively receiving messages based on pattern matching.
 
-![](http://www.rabbitmq.com/img/tutorials/python-five.png)
+![Topic Image](http://www.rabbitmq.com/img/tutorials/python-five.png)
 
 ## [RPC](tutorial-six)
 
 Remote procedure calls implemented on a message queue.
 
-![](http://www.rabbitmq.com/img/tutorials/python-six.png)
+![RPC Image](http://www.rabbitmq.com/img/tutorials/python-six.png)
