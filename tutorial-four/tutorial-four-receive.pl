@@ -1,12 +1,8 @@
-#!perl6
+#!/usr/bin/env perl6
 
-# This does the same as the "printer.pl6" but
-# uses the react construct
-
-use v6;
+use v6.c;
 
 use Net::AMQP;
-
 
 subset Level of Str where { $_ ~~ any(<debug info warning error fatal>) };
 
@@ -33,3 +29,4 @@ multi sub MAIN(*@levels ) {
     }
     await $connection;
 }
+# vim: expandtab shiftwidth=4 ft=perl6

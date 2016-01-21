@@ -4,7 +4,6 @@ use v6;
 
 use Net::AMQP;
 
-
 multi sub fib(Int() $i) returns Int {
 	 (0 .. $i).reduce({ $^a + $^b });
 }
@@ -34,8 +33,5 @@ react {
 }
 
 await $connection;
-
-
-
 
 # vim: expandtab shiftwidth=4 ft=perl6

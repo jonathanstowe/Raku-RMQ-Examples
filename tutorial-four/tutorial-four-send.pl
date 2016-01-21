@@ -1,5 +1,7 @@
 #!/usr/bin/env perl6
 
+use v6.c;
+
 use Net::AMQP;
 
 subset Level of Str where { $_ ~~ any(<debug info warning error fatal>) };

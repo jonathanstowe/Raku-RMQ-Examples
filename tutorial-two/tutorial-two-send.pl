@@ -1,5 +1,7 @@
 #!/usr/bin/env perl6
 
+use v6.c;
+
 use Net::AMQP;
 
 multi sub MAIN(Str $body = ('a' .. 'z').pick(8).join('')) {

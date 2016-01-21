@@ -1,5 +1,7 @@
 #!/usr/bin/env perl6
 
+use v6.c;
+
 use Net::AMQP;
 
 my $n = Net::AMQP.new(:debug);

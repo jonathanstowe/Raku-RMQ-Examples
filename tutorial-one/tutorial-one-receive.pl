@@ -1,9 +1,6 @@
-#!perl6
+#!/usr/bin/env perl6
 
-# This does the same as the "printer.pl6" but
-# uses the react construct
-
-use v6;
+use v6.c;
 
 use Net::AMQP;
 
@@ -13,9 +10,9 @@ my $connection = $n.connect.result;
 
 react {
     whenever $n.open-channel(1) -> $channel {
-        whenever $channel.declare-queue("hello") -> $q {
-            $q.consume;
-            whenever $q.message-supply.map( -> $v { $v.body.decode }) -> $message {
+        whenever $channel.declare-queue("hello") -> $queue {
+            $queue.consume;
+            whenever $queue.message-supply.map( -> $v { $v.body.decode }) -> $message {
                 say $message;
                 $n.close("", "");
                 done();
@@ -25,3 +22,5 @@ react {
 }
 
 await $connection;
+
+# vim: expandtab shiftwidth=4 ft=perl6

@@ -1,9 +1,6 @@
-#!perl6
+#!/usr/bin/env perl6
 
-# This does the same as the "printer.pl6" but
-# uses the react construct
-
-use v6;
+use v6.c;
 
 use Net::AMQP;
 
@@ -33,3 +30,5 @@ react {
 }
 
 await $connection;
+
+# vim: expandtab shiftwidth=4 ft=perl6

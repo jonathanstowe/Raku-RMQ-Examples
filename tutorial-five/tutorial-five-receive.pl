@@ -1,11 +1,8 @@
-#!perl6
+#!/usr/bin/env perl6
 
-
-use v6;
+use v6.c;
 
 use Net::AMQP;
-
-
 
 multi sub MAIN(*@topics ) {
     my $n = Net::AMQP.new(:debug);
@@ -32,3 +29,5 @@ multi sub MAIN(*@topics ) {
     }
     await $connection;
 }
+
+# vim: expandtab shiftwidth=4 ft=perl6
