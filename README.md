@@ -15,6 +15,17 @@ You can install Net::AMQP directly with
 
 You will need at least version v0.1.4 for these examples to work properly.
 
+In all of the examples it is assumed that the RabbitMQ server is running on the local machine with the default
+configuration, if this not the case then you can pass the differing items to the ```Net::AMQP``` constructor:
+
+```
+
+	my $n = Net::AMQP.new(host => 'localhost' port => 5672, login => 'guest', password => 'guest', vhost => '/');
+
+```
+
+(The above shows the defaults but you should supply the appropriate values for your configuration.)
+
 
 ## ["Hello, World"](tutorial-001)
 
