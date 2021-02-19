@@ -1,15 +1,15 @@
-#!/usr/bin/env perl6
+#!/usr/bin/env raku
 
 use v6.c;
 
 use Net::AMQP;
 
 multi sub MAIN(Str $body = ('a' .. 'z').pick(8).join('')) {
-    my $n = Net::AMQP.new;
+    my $n = Net::AMQP.new(:debug);
     my $con =  await $n.connect;
     my $channel = $n.open-channel(1).result;;
     $channel.exchange.result.publish(routing-key => "task_queue", body => $body.encode, :persistent);
     await $n.close("", "");
     await $con;
 }
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku

@@ -1,17 +1,17 @@
-# Perl 6 RabbitMQ Tutorial Examples
+# Raku RabbitMQ Tutorial Examples
 
-These are Perl 6 versions of the [Rabbit MQ Tutorial](http://www.rabbitmq.com/getstarted.html) examples.
-They cover the basic patterns for creating messaging applications with Perl 6 and Rabbit MQ.
+These are Raku versions of the [Rabbit MQ Tutorial](http://www.rabbitmq.com/getstarted.html) examples.
+They cover the basic patterns for creating messaging applications with Raku and Rabbit MQ.
 
-You will need to have [Rabbit MQ installed](http://www.rabbitmq.com/download.html) as well as Perl 6 and
+You will need to have [Rabbit MQ installed](http://www.rabbitmq.com/download.html) as well as Raku and
 the client library [Net::AMQP](https://github.com/retupmoca/P6-Net-AMQP).
 
-You should have a version of Rakudo Perl 6 newer than approximately mid-January 2016 as there was a small but
+You should have a version of Rakudo Raku newer than approximately mid-January 2016 as there was a small but
 crucial bug that got fixed around that time that prevented Net::AMQP from working.
 
 You can install Net::AMQP directly with
 
-```    panda install Net::AMQP````
+```    zef install Net::AMQP````
 
 You will need at least version v0.1.4 for these examples to work properly.
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env perl6 
+#!/usr/bin/env raku 
 
 use v6.c;
 
@@ -15,4 +15,4 @@ $channel.exchange.result.publish(routing-key => "hello", body => "Hello, World".
 await $n.close("", "");
 
 
-# vim: expandtab shiftwidth=4 ft=perl6
+# vim: expandtab shiftwidth=4 ft=raku
