@@ -6,7 +6,7 @@ use Net::AMQP;
 
 subset Level of Str where { $_ ~~ any(<debug info warning error fatal>) };
 
-multi sub MAIN(Str $message = 'Hello, World', Level $level = 'info') {
+multi sub MAIN(Str $message = 'Hello, World', Level :$level = 'info') {
     my $n = Net::AMQP.new;
     my $con =  await $n.connect;
     my $channel = $n.open-channel(1).result;

@@ -6,14 +6,11 @@ They cover the basic patterns for creating messaging applications with Raku and 
 You will need to have [Rabbit MQ installed](http://www.rabbitmq.com/download.html) as well as Raku and
 the client library [Net::AMQP](https://github.com/retupmoca/P6-Net-AMQP).
 
-You should have a version of Rakudo Raku newer than approximately mid-January 2016 as there was a small but
-crucial bug that got fixed around that time that prevented Net::AMQP from working.
+Assuming you have a working Rakudo installation you can install Net::AMQP directly with:
 
-You can install Net::AMQP directly with
+   zef install Net::AMQP
 
-```    zef install Net::AMQP````
-
-You will need at least version v0.1.4 for these examples to work properly.
+You will need at least version v0.1.15 for these examples to work properly.
 
 In all of the examples it is assumed that the RabbitMQ server is running on the local machine with the default
 configuration, if this not the case then you can pass the differing items to the ```Net::AMQP``` constructor:

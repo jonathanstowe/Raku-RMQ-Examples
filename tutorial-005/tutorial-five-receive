@@ -1,3 +1,5 @@
+#!/usr/bin/env raku
+#
 use Net::AMQP;
 
 multi sub MAIN(*@topics ) {
@@ -10,7 +12,7 @@ multi sub MAIN(*@topics ) {
     react {
         whenever $n.open-channel(1) -> $channel {
             whenever $channel.declare-exchange('topic-logs', 'topic') -> $exchange {
-                whenever $channel.declare-queue('', :exclusive) -> $queue {
+                whenever $channel.declare-queue(:exclusive) -> $queue {
                     for @topics -> $topic {
                         await $queue.bind('topic-logs', $topic);
                     }
@@ -23,7 +25,6 @@ multi sub MAIN(*@topics ) {
             }
         }
     }
-    await $connection;
 }
 
 # vim: expandtab shiftwidth=4 ft=raku

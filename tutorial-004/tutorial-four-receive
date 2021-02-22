@@ -16,9 +16,7 @@ multi sub MAIN(*@levels ) {
         whenever $n.open-channel(1) -> $channel {
             whenever $channel.declare-exchange('multi_logs', 'direct') -> $exchange {
                 for @levels -> $level {
-                    my $queue =  $channel.declare-queue('', :exclusive).result;
-                    await $queue.bind('multi_logs', $level);
-                    $queue.consume;
+                    my $queue =  $channel.declare-queue(:exclusive, :consume, bind => 'multi_logs', routing-key => $level).result;
                     my $body-supply = $queue.message-supply.map( -> $v { $v.body.decode }).share;
                     $body-supply.tap( -> $message {
                             say $*PID ~ " : [$level]  $message";
